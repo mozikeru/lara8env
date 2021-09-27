@@ -26,6 +26,7 @@ RUN apt-get install -y vim
 # Node.jsをインストール
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get install -y nodejs
+RUN apt-get install -y npm
 
 RUN apt-get install -y libpq-dev libfreetype6-dev libjpeg62-turbo-dev libpng-dev
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg
