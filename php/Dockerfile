@@ -19,6 +19,7 @@ RUN docker-php-ext-install pdo pdo_mysql
 #COPY ./php/opcache.ini /usr/local/etc/php/conf.d/
 
 RUN apt-get update
+RUN apt-get install -y zip unzip
 #RUN apt-get install -y procps
 RUN apt-get install -y git
 RUN apt-get install -y vim
@@ -31,6 +32,9 @@ RUN apt-get install -y npm
 RUN apt-get install -y libpq-dev libfreetype6-dev libjpeg62-turbo-dev libpng-dev
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 RUN docker-php-ext-install -j$(nproc) gd
+
+# LINE BOTのインストールに必要
+#RUN docker-php-ext-install sockets
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
